@@ -6,7 +6,7 @@
     <!-- formの送信先を指定 -->
 
     <%= form_for(@user) do |f| %>                                               <!-- 、fブロックに代入-->
-      <%= render 'shared/error_messages', object: @user %>                      <!-- エラーメッセージ用のパーシャルを表示 -->
+      <%= render 'shared/error_messages', object: f.object %>                  <!-- エラーメッセージ用のパーシャルを表示 -->
 
     <!-- form作成-->
 

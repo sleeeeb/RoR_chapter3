@@ -45,5 +45,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
                                             admin: true } }
       assert_not @other_user.reload.admin?                                      # @other_userを再読み込みし、admin論理値が変更されてないか検証(falseやnilならtrue)
     end
+    test "should redirect following when not logged in" do
+      get following_user_path(@user)
+      assert_redirected_to login_url
+    end
+  
+    test "should redirect followers when not logged in" do
+      get followers_user_path(@user)
+      assert_redirected_to login_url
+    end
 
 end
